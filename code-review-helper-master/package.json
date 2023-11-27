@@ -1,0 +1,78 @@
+{
+  "name": "@infra/code-review-helper",
+  "version": "1.4.0",
+  "description": "A collection of code review helper tools",
+  "main": "dist/main.js",
+  "typings": "dist/main.d.ts",
+  "repository": "gitlab@git.garena.com:shopee/sz-devops/fe/code-review-helper.git",
+  "author": "Jiyao Hong <jiyao.hong@shopee.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 14"
+  },
+  "keywords": [
+    "code review",
+    "helper",
+    "tool",
+    "gitlab",
+    "seatalk"
+  ],
+  "bin": {
+    "code-review-helper": "./dist/bin/index.js"
+  },
+  "files": [
+    "dist/**/*.d.ts",
+    "dist/**/*.d.ts.map",
+    "dist/**/*.js",
+    "dist/**/*.js.map",
+    "readme.md"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "dev": "ts-node-dev --project ./tsconfig.json -r tsconfig-paths/register --inspect -- \"src/main.ts\"\n",
+    "build": "./build.sh",
+    "bin": "yarn build && node ./dist/bin/index.js",
+    "release": "node release.js",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "moment": "^2.29.1",
+    "source-map-support": "^0.5.20"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@infra-node-kit/eslint-config-infra": "^1.4.0",
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "babel-plugin-tsconfig-paths": "^1.0.3-rc.1",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-unused-imports": "^1.1.5",
+    "husky": "^7.0.2",
+    "inquirer": "^8.2.0",
+    "lint-staged": "^11.2.3",
+    "prettier": "^2.3.2",
+    "semver": "^7.3.5",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.5.3"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js}": [
+      "eslint --quiet --fix"
+    ]
+  }
+}
